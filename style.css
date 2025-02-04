@@ -6,6 +6,8 @@ html{
 }
 
 body{
+    display: grid; /* si añadimos grid al body y luego le añadinos place-itms center se centrarán todos los elementos */
+    place-items: center;
     text-align: center;
     font-family: 'Patrick Hand', Arial, Helvetica, sans-serif;
     background-color: #f7f4e1;
@@ -14,6 +16,10 @@ body{
     margin: 0;
     padding: 0;
     min-width: 380px;
+}
+
+#start-form{
+    margin-bottom: 3rem;
 }
 
 /* Título */
@@ -25,8 +31,23 @@ h1{
     color: #333;
 }
 
-/* Estilo de botones, selector por id, todos los botones con el id buttonLetters */
-#buttonLetters button {
+#grid{
+    position: relative;
+    gap: 10px;
+    width: 300px; /* Ajusta según el tamaño deseado */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
+    justify-items: center;
+    align-items: center;
+}
+
+#grid div{
+    aspect-ratio: 1 / 1;/* Hace que las celdas sean cuadradas */
+}
+
+/* Estilo de botones, selector por id, todos los botones con el id grid */
+#grid button {
     font-family: 'Patrick Hand', Arial, sans-serif;
     font-size: 2rem; 
     background: none;
@@ -38,12 +59,12 @@ h1{
     transition: transform 0.2s;
 }
 
-#buttonLetters button:hover{
+#grid button:hover{
     transform: scale(1.1);
     color: #b3ab58;
 }
 /* button:disabled debe ir debajo de hover para que las letras que estén deshabilitadas no tengan la propiedad del hover  */
-#buttonLetters button:disabled {
+#grid button:disabled {
     transform: scale(1.1);
     color: #dad4c0;
 }
@@ -62,10 +83,6 @@ h1{
 }
 
 /* Botón de reinicio */
-
-.inv{
-    display: none;
-}
 
 /* Botón de reinicio, con .restarButton button hace que se especifique que el estilo solo se aplicará a los botones dentro del contenedor con la clase restarButton
 esto es bueno para evitar conflictos si .restartButton contiene otros elementos que no sean botones */
@@ -162,6 +179,27 @@ h3{
     padding: 10px;
     margin-top: 20px;
 }
+
+.players{
+    font-size: 1.5rem;
+    display: flex;
+    margin-bottom: 2rem;
+    
+}
+
+.player{
+    font-family: 'Patrick Hand', Arial, sans-serif; 
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #333;  
+    margin-left: 1.5rem;
+}
+
+/* clase para que se pongan en invisible */
+.inv{
+    display: none !important; /*!important*/
+}
+
 
 @media only screen and (max-width:900px){ /* media query */
 

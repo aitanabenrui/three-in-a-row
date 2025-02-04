@@ -9,23 +9,25 @@
 </head>
 <body>
     <h1>Three in a row</h1>
-    <h3 id="option">For two players only:</h3>
-    <button id="start">Start</button>
+    <div id="start-form">
+        <h3 id="option">For two players only:</h3>
+        <button id="start">Start</button>
+    </div>
     <div>
         <div class="inv players">
-            <div class="inv">Player: ⭕</div>
-            <div class="inv">Player: ❌</div>
+            <div class="player">Player 1: ⭕</div>
+            <div class="player">Player 2: ❌</div>
         </div>
-        <div id="grid" class="inv"> <!--el id y la class igual a inv serán para que haga lo mismo que la imágen, aparecer una vez enviada la palabra -->
-            <button>1</button> <!--va a pasar a la función 'A' y el elemento donde está el onclick, es decir, un botón -->
-            <button>2</button>
-            <button>3</button>
-            <button>4</button>
-            <button>5</button>
-            <button>6</button>
-            <button>7</button>
-            <button>8</button>
-            <button>9</button>
+        <div  class="inv grid" id="grid"> <!--el id y la class igual a inv serán para que haga lo mismo que la imágen, aparecer una vez enviada la palabra -->
+            <button id="11">1</button> <!--va a pasar a la función 'A' y el elemento donde está el onclick, es decir, un botón -->
+            <button id="12">2</button>
+            <button id="13">3</button>
+            <button id="21">4</button>
+            <button id="22">5</button>
+            <button id="23">6</button>
+            <button id="31">7</button>
+            <button id="32">8</button>
+            <button id="33">9</button>
         </div>
         <div id="restart" class="restartButton inv" >
             <button onclick="reset()">Reiniciar</button>
