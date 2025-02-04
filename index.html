@@ -16,7 +16,7 @@
     <div>
         <div class="inv players">
             <div class="player">Player 1: ⭕</div>
-            <div class="player">Player 2: </div>
+            <div class="player">Player 2: ❌</div>
         </div>
         <div  class="inv grid" id="grid"> <!--el id y la class igual a inv serán para que haga lo mismo que la imágen, aparecer una vez enviada la palabra -->
             <button class="grid11 cell"></button> <!--va a pasar a la función 'A' y el elemento donde está el onclick, es decir, un botón -->
@@ -29,8 +29,11 @@
             <button class="grid32 cell"></button>
             <button class="grid33 cell"></button>
         </div>
-        <div class="player inv">¡Player ⭕ wins !</div>
-        <div class="player inv">¡Player ❌ wins!</div>
+        <div class="result">
+            <div class="player inv player1">¡Player ⭕ wins !</div>
+            <div class="player inv player2">¡Player  wins!</div>
+            <div class="player inv tie">¡Tie!</div>
+        </div>
         <div id="restart" class="restartButton inv" >
             <button onclick="reset()">Reiniciar</button>
         </div>

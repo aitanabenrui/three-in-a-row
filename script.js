@@ -70,8 +70,15 @@ const winnerOrLooser = () =>{
     
     if(counter === 3 || win === true ){
         document.querySelector("#restart").classList.remove("inv"); 
+        if(player === 1){
+            document.querySelector('.player1').classList.remove('inv');
+        } 
+        else if (player === 2){
+            document.querySelector('.player2').classList.remove('inv');
+        } else{
+            document.querySelector('.tie').classList.remove('inv');
+        }
     }
-
     
 }
 
@@ -87,7 +94,7 @@ start.addEventListener('click', startGame); //cuando clickamos en start, empezar
 //añadir addEventListener para cada botón dentro del grid
 buttons.forEach((element, index)=>{
     element.addEventListener('click', function(){
-        console.log('hola')
+        element.disabled = true;
         switch (index){
             case 0: 
                 addPiece('.grid11', 1, 1);
