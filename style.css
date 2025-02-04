@@ -53,11 +53,18 @@ h1{
     font-size: 2rem; 
     background: none;
     border: none;
-    margin: 5px;
-    padding: 10px 10px;
+    margin: 4px;
     cursor: url(images/lapiz_resized.png) 0 31, auto;
     color: #333;
     transition: transform 0.2s;
+}
+
+/* hacemos que todos los botones dentro del gri sean cuadrados */
+#grid button{ 
+    aspect-ratio: 1/1;
+    min-width: 125px;
+    outline: 2px solid #333;
+    padding-inline: 25px;
 }
 
 #grid button:hover{
@@ -83,13 +90,7 @@ h1{
     display: inline-block;
 }
 
-/* hacemos que todos los botones dentro del gri sean cuadrados */
-#grid button{ 
-    aspect-ratio: 1/1;
-    min-width: 150px;
-    outline: 2px solid #333;
-    padding-inline: 25px;
-}
+
 /* Botón de reinicio */
 
 /* Botón de reinicio, con .restarButton button hace que se especifique que el estilo solo se aplicará a los botones dentro del contenedor con la clase restarButton
