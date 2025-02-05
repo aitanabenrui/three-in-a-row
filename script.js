@@ -44,7 +44,7 @@ const winnerOrLooser = () =>{
         }
         else if((results[0][i] === results[1][i] && results[0][i] === results[2][i])&& results[0][i] != 0){
             win = true;
-            player = results[i][0];
+            player = results[0][i];
             break;
         }
     }
