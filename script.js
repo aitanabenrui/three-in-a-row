@@ -99,7 +99,7 @@ start.addEventListener('click', startGame); //cuando clickamos en start, empezar
 //añadir addEventListener para cada botón dentro del grid
 buttons.forEach((element, index)=>{
     element.addEventListener('click', function(){
-        element.disabled = true;
+        element.disabled = true; //al clickarlo que se deshabilite el botón 
         switch (index){
             case 0: 
                 addPiece('.grid11', 1, 1);
