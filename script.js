@@ -60,10 +60,10 @@ const winnerOrLooser = () =>{
         player = results[0][2];
     }
 
-    //nueva comporbación de empate
+    //comporbación de empate
     let counter = 0; 
     results.forEach((array)=>{
-        const newArray = array.filter(function (number){
+    const newArray = array.filter(function (number){
             return number === 0;
         })
 
@@ -74,6 +74,7 @@ const winnerOrLooser = () =>{
     
     if(counter === 3 || win === true ){
         document.querySelector("#restart").classList.remove("inv"); 
+        console.log(player);
         if(player === 1){
             document.querySelector('.player1').classList.remove('inv');
         } 
