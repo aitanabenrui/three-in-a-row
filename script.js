@@ -36,6 +36,7 @@ const winnerOrLooser = () =>{
     let win = false;
     let player = 0;
     //comprobar si ha hecho 3 en raya o no, cada vez que se añadee una ficha se debe comprobar que los botones no contengan carácteres iguales alineados de cualquier forma
+    //comporbación de filas y columnas
     for(let i = 0; i <= 2; i++){
         if((results[i][0] === results[i][1] && results[i][0] === results[i][2])&& results[i][0] != 0){
             win = true;
@@ -48,6 +49,8 @@ const winnerOrLooser = () =>{
             break;
         }
     }
+
+    //Comprobación de diagonales
     if((results[0][0] === results[1][1] && results[0][0] === results[2][2])&& results[0][0] != 0 ){
         win = true;
         player = results[0][0];
@@ -57,9 +60,10 @@ const winnerOrLooser = () =>{
         player = results[0][2];
     }
 
+    //nueva comporbación de empate
     let counter = 0; 
     results.forEach((array)=>{
-       const newArray = array.filter(function (number){
+        const newArray = array.filter(function (number){
             return number === 0;
         })
 
