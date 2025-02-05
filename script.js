@@ -64,15 +64,15 @@ const winnerOrLooser = () =>{
     let counter = 0; 
     results.forEach((array)=>{
     const newArray = array.filter(function (number){
-            return number === 0;
+            return number === 0; //filtramos los 0 en el array, si no hay 0 es que se han puesto todas las piezas
         })
 
-        if(newArray.length === 0){
+        if(newArray.length === 0){ //si en el array no hay 0, es decir todo el array son 1 y 2 entonces añade 1 al contador
             counter += 1;
         }
     })
     
-    if(counter === 3 || win === true ){
+    if(counter === 3 || win === true ){ //si los 3 arrays dentro del array están llenos, la partida ha acabado 
         document.querySelector("#restart").classList.remove("inv"); 
         console.log(player);
         if(player === 1){
