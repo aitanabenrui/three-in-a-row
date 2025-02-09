@@ -6,8 +6,14 @@ const startForm = document.querySelector("#start-form");
 const players = document.querySelector(".players");
 const buttons = document.querySelectorAll(".cell");
 const grid = document.querySelector("#grid");
+const clear = document.querySelector("#clear")
+const playersScore = document.querySelector(".players-score");
+const score1 = document.querySelector(".score-1");
+const score2 = document.querySelector(".score-2");
 let numberOfPlays = 0; //contador cada vez que se hace click en un botón, si es par en el grid se añadirá una cosa, si es impar otra
 let results = [[0,0,0],[0,0,0],[0,0,0]];
+let score = JSON.parse(localStorage.getItem("score"))||[0,0]; //definimos score como si fueran daros guradados del localStorage o si no hay en su defecto [0,0]
+
 //Aquí añadiremos las funciones necesarias para que el juego funcione
 
 const startGame = (e) =>{
@@ -15,6 +21,10 @@ const startGame = (e) =>{
     startForm.classList.add('inv'); //al empezar la partida añadimos a start la clase inv para que no se muestre
     players.classList.remove('inv');
     grid.classList.remove('inv');
+    clear.classList.remove('inv');
+    playersScore.classList.remove('inv');
+    score1.innerHTML = `Player ⭕: ${score[0]}`;
+    score2.innerHTML = `Player ❌: ${score[1]}`;
 
 }
 
@@ -71,18 +81,31 @@ const winnerOrLooser = () =>{
             counter += 1;
         }
     })
+
+    //dentro de la función winnerOrLooser parte del código que devuelve quién ha ganado
     
     if(counter === 3 || win === true ){ //si los 3 arrays dentro del array están llenos, la partida ha acabado 
         document.querySelector("#restart").classList.remove("inv"); 
         console.log(player);
+// document.querySelectorAll(".cell").disabled = true; no se puede usar porque devuelve un  NodeList, que es como un array, y no puedes deshabilitarlo directamente. 
+        buttons.forEach(button => { //hay que usar un forEach para recorrer el array de botones y deshabilitarlos 1 por 1
+            button.disabled = true;
+        });
         if(player === 1){
             document.querySelector('.player1').classList.remove('inv');
+            score[0] += 1;
+            console.log(score);
+            score1.innerHTML = `Player ⭕: ${score[0]}`;
         } 
         else if (player === 2){
             document.querySelector('.player2').classList.remove('inv');
+            score[1] += 1;
+            console.log(score);
+            score2.innerHTML = `Player ❌: ${score[1]}`;
         } else{
             document.querySelector('.tie').classList.remove('inv');
         }
+        localStorage.setItem("score", JSON.stringify(score)); //se actualiza el valor asociado a la key "taskArray" 
     }
     
 }
@@ -95,7 +118,11 @@ const reset = ()=>{
 //añadiremos aquí los addEventListeners, llaman a las funciones necesarias al interactuar con el dom
 
 start.addEventListener('click', startGame); //cuando clickamos en start, empezará la aprtida
-
+clear.addEventListener('click', ()=>{
+    localStorage.removeItem("score");
+    score1.innerHTML = `Player ⭕: ${0}`;
+    score2.innerHTML = `Player ❌: ${0}`;
+})
 //añadir addEventListener para cada botón dentro del grid
 buttons.forEach((element, index)=>{
     element.addEventListener('click', function(){

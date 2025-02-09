@@ -29,13 +29,24 @@
             <button class="grid32 cell"></button>
             <button class="grid33 cell"></button>
         </div>
+        <div id="score-content">
+            <div class="inv players-score">
+                <div class="score-1">Player ⭕: 0</div>
+                <div class="score-2">Player ❌: 0</div>
+            </div>
+                <div class="buttons">
+                <div id="clear" class="restartButton inv">
+                    <button>Clear</button>
+                </div>
+            </div>
+        </div>
         <div class="result">
             <div class="player inv player1">¡Player ⭕ wins !</div>
             <div class="player inv player2">¡Player ❌ wins!</div>
             <div class="player inv tie">¡Tie!</div>
         </div>
         <div id="restart" class="restartButton inv" >
-            <button onclick="reset()">Reiniciar</button>
+            <button onclick="reset()">Reset</button>
         </div>
     </div>
     <script src="script.js"></script>
