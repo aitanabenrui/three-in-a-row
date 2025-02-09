@@ -194,8 +194,9 @@ h3{
     flex-direction: inline; /* Acomoda los elementos en columna */
     align-items: center; /* Centra los elementos horizontalmente */
     justify-content: center;
-    margin-top: 0.7rem;
+    margin-top: 0.6rem;
     padding-top: 0.7rem;
+    width: 100%;
 
 }
 
